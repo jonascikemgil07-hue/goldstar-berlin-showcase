@@ -108,9 +108,20 @@
     font-weight: 400;
     letter-spacing: -0.01em;
   }
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
   ::selection {
     background: var(--gold-muted);
     color: var(--anthracite);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -121,4 +132,43 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--gold);
+}
+
+/* Animated underline for nav links */
+@utility story-link {
+  position: relative;
+  display: inline-block;
+}
+.story-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.story-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Soft lift on hover */
+@utility hover-lift {
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -32px rgba(28, 28, 28, 0.35);
+}
+
+@keyframes gs-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@utility animate-fade-up {
+  animation: gs-fade-up 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
