@@ -109,9 +109,9 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b border-ivory-dark/25 bg-ivory/45 backdrop-blur-2xl transition-[box-shadow,border-color,background-color] duration-500 ${
+        className={`sticky top-0 z-50 border-b border-ivory-dark/25 bg-ivory/35 backdrop-blur-2xl transition-[box-shadow,border-color,background-color] duration-500 ${
           scrolled
-            ? "border-ivory-dark/50 bg-ivory/55 shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
+            ? "border-ivory-dark/50 bg-ivory/45 shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
             : ""
         }`}
       >
