@@ -38,7 +38,7 @@ function Impressum() {
           <div>
             <p className="eyebrow mb-3">Kontakt</p>
             <p>Telefon: {shop.telefon}</p>
-            <p>E-Mail: {shop.email}</p>
+            <p>E-Mail: [E-Mail-Adresse einfügen]</p>
           </div>
           <div>
             <p className="eyebrow mb-3">Umsatzsteuer-ID</p>
