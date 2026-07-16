@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
 import { GoldVeil } from "../components/gold-veil";
+import { PageTransition } from "../components/page-transition";
 
 function NotFoundComponent() {
   return (
@@ -135,7 +136,9 @@ function RootComponent() {
       <div className="relative z-[1] flex min-h-screen flex-col text-foreground">
         <SiteHeader />
         <main className="flex-1">
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <SiteFooter />
       </div>
