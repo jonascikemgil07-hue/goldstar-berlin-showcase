@@ -9,38 +9,215 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UhrenRouteImport } from './routes/uhren'
+import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as TrauringeRouteImport } from './routes/trauringe'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SchmuckRouteImport } from './routes/schmuck'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as ImpressumRouteImport } from './routes/impressum'
+import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProduktSlugRouteImport } from './routes/produkt.$slug'
 
+const UhrenRoute = UhrenRouteImport.update({
+  id: '/uhren',
+  path: '/uhren',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UeberUnsRoute = UeberUnsRouteImport.update({
+  id: '/ueber-uns',
+  path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrauringeRoute = TrauringeRouteImport.update({
+  id: '/trauringe',
+  path: '/trauringe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SchmuckRoute = SchmuckRouteImport.update({
+  id: '/schmuck',
+  path: '/schmuck',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpressumRoute = ImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatenschutzRoute = DatenschutzRouteImport.update({
+  id: '/datenschutz',
+  path: '/datenschutz',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProduktSlugRoute = ProduktSlugRouteImport.update({
+  id: '/produkt/$slug',
+  path: '/produkt/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/schmuck': typeof SchmuckRoute
+  '/services': typeof ServicesRoute
+  '/trauringe': typeof TrauringeRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/uhren': typeof UhrenRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/schmuck': typeof SchmuckRoute
+  '/services': typeof ServicesRoute
+  '/trauringe': typeof TrauringeRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/uhren': typeof UhrenRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/datenschutz': typeof DatenschutzRoute
+  '/impressum': typeof ImpressumRoute
+  '/kontakt': typeof KontaktRoute
+  '/schmuck': typeof SchmuckRoute
+  '/services': typeof ServicesRoute
+  '/trauringe': typeof TrauringeRoute
+  '/ueber-uns': typeof UeberUnsRoute
+  '/uhren': typeof UhrenRoute
+  '/produkt/$slug': typeof ProduktSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/schmuck'
+    | '/services'
+    | '/trauringe'
+    | '/ueber-uns'
+    | '/uhren'
+    | '/produkt/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/schmuck'
+    | '/services'
+    | '/trauringe'
+    | '/ueber-uns'
+    | '/uhren'
+    | '/produkt/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/schmuck'
+    | '/services'
+    | '/trauringe'
+    | '/ueber-uns'
+    | '/uhren'
+    | '/produkt/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DatenschutzRoute: typeof DatenschutzRoute
+  ImpressumRoute: typeof ImpressumRoute
+  KontaktRoute: typeof KontaktRoute
+  SchmuckRoute: typeof SchmuckRoute
+  ServicesRoute: typeof ServicesRoute
+  TrauringeRoute: typeof TrauringeRoute
+  UeberUnsRoute: typeof UeberUnsRoute
+  UhrenRoute: typeof UhrenRoute
+  ProduktSlugRoute: typeof ProduktSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/uhren': {
+      id: '/uhren'
+      path: '/uhren'
+      fullPath: '/uhren'
+      preLoaderRoute: typeof UhrenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ueber-uns': {
+      id: '/ueber-uns'
+      path: '/ueber-uns'
+      fullPath: '/ueber-uns'
+      preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trauringe': {
+      id: '/trauringe'
+      path: '/trauringe'
+      fullPath: '/trauringe'
+      preLoaderRoute: typeof TrauringeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schmuck': {
+      id: '/schmuck'
+      path: '/schmuck'
+      fullPath: '/schmuck'
+      preLoaderRoute: typeof SchmuckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impressum': {
+      id: '/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ImpressumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/datenschutz': {
+      id: '/datenschutz'
+      path: '/datenschutz'
+      fullPath: '/datenschutz'
+      preLoaderRoute: typeof DatenschutzRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +225,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produkt/$slug': {
+      id: '/produkt/$slug'
+      path: '/produkt/$slug'
+      fullPath: '/produkt/$slug'
+      preLoaderRoute: typeof ProduktSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DatenschutzRoute: DatenschutzRoute,
+  ImpressumRoute: ImpressumRoute,
+  KontaktRoute: KontaktRoute,
+  SchmuckRoute: SchmuckRoute,
+  ServicesRoute: ServicesRoute,
+  TrauringeRoute: TrauringeRoute,
+  UeberUnsRoute: UeberUnsRoute,
+  UhrenRoute: UhrenRoute,
+  ProduktSlugRoute: ProduktSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

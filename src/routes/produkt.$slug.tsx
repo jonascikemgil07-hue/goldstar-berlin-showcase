@@ -99,7 +99,7 @@ function ProduktPage() {
             </div>
             {bilder.length > 1 && (
               <div className="mt-4 grid grid-cols-4 gap-3">
-                {bilder.map((b, i) => (
+                {bilder.map((b: string, i: number) => (
                   <button
                     key={i}
                     onClick={() => setActive(i)}
@@ -129,7 +129,7 @@ function ProduktPage() {
             </p>
 
             <dl className="mt-10 divide-y divide-anthracite/10 border-y border-anthracite/10">
-              {produkt.eigenschaften.map((e) => (
+              {produkt.eigenschaften.map((e: { label: string; wert: string }) => (
                 <div key={e.label} className="grid grid-cols-[140px_1fr] gap-4 py-3 text-sm">
                   <dt className="text-anthracite/50 uppercase tracking-[0.18em] text-[11px]">
                     {e.label}
