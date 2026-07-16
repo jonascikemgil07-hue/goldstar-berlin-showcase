@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
+import { GoldVeil } from "../components/gold-veil";
 
 function NotFoundComponent() {
   return (
@@ -130,7 +131,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <GoldVeil />
+      <div className="relative z-[1] flex min-h-screen flex-col text-foreground">
         <SiteHeader />
         <main className="flex-1">
           <Outlet />
