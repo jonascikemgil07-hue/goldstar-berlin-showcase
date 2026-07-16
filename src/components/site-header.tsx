@@ -60,7 +60,7 @@ export function SiteHeader() {
       />
 
       <aside
-        className={`mobile-menu-panel absolute inset-y-0 right-0 flex w-full max-w-[28rem] flex-col border-l border-anthracite/10 shadow-[0_30px_80px_-28px_rgba(28,28,28,0.55)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`mobile-menu-panel absolute inset-y-0 right-0 flex w-full max-w-[28rem] flex-col border-l border-ivory-dark/30 shadow-[0_30px_80px_-28px_rgba(28,28,28,0.55)] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-label="Mobiles Menü"
@@ -109,10 +109,10 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b bg-ivory/90 backdrop-blur-md transition-[box-shadow,border-color,background-color] duration-500 ${
+        className={`sticky top-0 z-50 border-b border-ivory-dark/20 bg-ivory/65 backdrop-blur-2xl transition-[box-shadow,border-color,background-color] duration-500 ${
           scrolled
-            ? "border-anthracite/10 shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
-            : "border-transparent"
+            ? "border-ivory-dark/40 shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
+            : ""
         }`}
       >
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 md:px-8 md:py-4">
