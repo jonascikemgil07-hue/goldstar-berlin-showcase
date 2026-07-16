@@ -10,15 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UeberUnsRouteImport } from './routes/ueber-uns'
+import { Route as SortimentRouteImport } from './routes/sortiment'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KategorieSlugRouteImport } from './routes/kategorie.$slug'
 
 const UeberUnsRoute = UeberUnsRouteImport.update({
   id: '/ueber-uns',
   path: '/ueber-uns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SortimentRoute = SortimentRouteImport.update({
+  id: '/sortiment',
+  path: '/sortiment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -46,6 +53,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KategorieSlugRoute = KategorieSlugRouteImport.update({
+  id: '/kategorie/$slug',
+  path: '/kategorie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +65,9 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/services': typeof ServicesRoute
+  '/sortiment': typeof SortimentRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/kategorie/$slug': typeof KategorieSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +75,9 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/services': typeof ServicesRoute
+  '/sortiment': typeof SortimentRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/kategorie/$slug': typeof KategorieSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,7 +86,9 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/services': typeof ServicesRoute
+  '/sortiment': typeof SortimentRoute
   '/ueber-uns': typeof UeberUnsRoute
+  '/kategorie/$slug': typeof KategorieSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -80,7 +98,9 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/services'
+    | '/sortiment'
     | '/ueber-uns'
+    | '/kategorie/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -88,7 +108,9 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/services'
+    | '/sortiment'
     | '/ueber-uns'
+    | '/kategorie/$slug'
   id:
     | '__root__'
     | '/'
@@ -96,7 +118,9 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/services'
+    | '/sortiment'
     | '/ueber-uns'
+    | '/kategorie/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -105,7 +129,9 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   ServicesRoute: typeof ServicesRoute
+  SortimentRoute: typeof SortimentRoute
   UeberUnsRoute: typeof UeberUnsRoute
+  KategorieSlugRoute: typeof KategorieSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -115,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/ueber-uns'
       fullPath: '/ueber-uns'
       preLoaderRoute: typeof UeberUnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sortiment': {
+      id: '/sortiment'
+      path: '/sortiment'
+      fullPath: '/sortiment'
+      preLoaderRoute: typeof SortimentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -152,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kategorie/$slug': {
+      id: '/kategorie/$slug'
+      path: '/kategorie/$slug'
+      fullPath: '/kategorie/$slug'
+      preLoaderRoute: typeof KategorieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -161,7 +201,9 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   ServicesRoute: ServicesRoute,
+  SortimentRoute: SortimentRoute,
   UeberUnsRoute: UeberUnsRoute,
+  KategorieSlugRoute: KategorieSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
