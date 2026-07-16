@@ -162,7 +162,8 @@
 }
 
 .mobile-menu-panel {
-  background: var(--ivory);
+  background: color-mix(in oklab, var(--ivory) 82%, transparent);
+  backdrop-filter: blur(24px) saturate(150%);
   color: var(--anthracite);
 }
 
