@@ -21,7 +21,7 @@ export function KineticHeading({
 }: Props) {
   const words = text.split(" ");
   return (
-    <Tag className={className}>
+    <Tag className={`kinetic-heading ${className}`}>
       {words.map((w, i) => {
         const isHi = highlight && w.replace(/[.,]/g, "") === highlight;
         return (
@@ -33,7 +33,6 @@ export function KineticHeading({
             <span className="kinetic-word-inner">
               {isHi ? <em className="text-gold">{w}</em> : w}
             </span>
-            {i < words.length - 1 ? " " : ""}
           </span>
         );
       })}
