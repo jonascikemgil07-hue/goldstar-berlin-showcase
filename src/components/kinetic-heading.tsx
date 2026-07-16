@@ -25,13 +25,14 @@ export function KineticHeading({
       {words.map((w, i) => {
         const isHi = highlight && w.replace(/[.,]/g, "") === highlight;
         return (
-          <span
-            key={i}
-            className="kinetic-word"
-            style={{ animationDelay: `${120 + i * 70}ms` }}
-          >
-            <span className="kinetic-word-inner">
-              {isHi ? <em className="text-gold">{w}</em> : w}
+          <span key={i}>
+            <span
+              className="kinetic-word"
+              style={{ animationDelay: `${120 + i * 70}ms` }}
+            >
+              <span className="kinetic-word-inner">
+                {isHi ? <em className="text-gold">{w}</em> : w}
+              </span>
             </span>
             {i < words.length - 1 ? " " : ""}
           </span>
