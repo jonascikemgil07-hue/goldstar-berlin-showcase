@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoAsset from "@/assets/gold-star-logo.asset.json";
 
 const nav = [
   { label: "Startseite", to: "/" as const },
-  { label: "Schmuck", to: "/schmuck" as const },
-  { label: "Uhren", to: "/uhren" as const },
-  { label: "Trauringe", to: "/trauringe" as const },
+  { label: "Sortiment", to: "/sortiment" as const },
   { label: "Services", to: "/services" as const },
   { label: "Über uns", to: "/ueber-uns" as const },
   { label: "Kontakt", to: "/kontakt" as const },
@@ -16,14 +15,20 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-anthracite/5 bg-ivory/85 backdrop-blur-md">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 md:px-8 md:py-5">
-        <Link to="/" className="min-w-0 font-serif text-xl tracking-tight md:text-2xl">
-          Gold <span className="text-gold">&amp;</span> Star
+    <header className="sticky top-0 z-50 border-b border-anthracite/5 bg-ivory/90 backdrop-blur-md">
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 md:px-8 md:py-4">
+        <Link to="/" className="flex min-w-0 items-center" aria-label="Juwelier Gold & Star – Startseite">
+          <img
+            src={logoAsset.url}
+            alt="Juwelier Gold & Star"
+            className="h-10 w-auto md:h-12"
+            width={200}
+            height={64}
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {nav.slice(1, 6).map((item) => (
+          {nav.slice(1).map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -55,10 +60,12 @@ export function SiteHeader() {
 
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-ivory lg:hidden">
-          <div className="flex items-center justify-between border-b border-anthracite/5 px-5 py-4">
-            <span className="font-serif text-xl">
-              Gold <span className="text-gold">&amp;</span> Star
-            </span>
+          <div className="flex items-center justify-between border-b border-anthracite/5 px-5 py-3">
+            <img
+              src={logoAsset.url}
+              alt="Juwelier Gold & Star"
+              className="h-10 w-auto"
+            />
             <button
               aria-label="Menü schließen"
               onClick={() => setOpen(false)}

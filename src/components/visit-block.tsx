@@ -1,5 +1,6 @@
-import { shop, mapsRouteUrl } from "@/data/shop";
+import { shop, mapsRouteUrl, mapsPlaceUrl } from "@/data/shop";
 import { Link } from "@tanstack/react-router";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
 
 export function VisitBlock() {
   return (
@@ -37,14 +38,22 @@ export function VisitBlock() {
             </div>
             <div>
               <p className="eyebrow mb-3">Telefon</p>
-              <a href={shop.telefonHref} className="text-sm text-anthracite/85 hover:text-gold">
+              <a
+                href={shop.telefonHref}
+                className="text-sm text-anthracite/85 hover:text-gold"
+              >
                 {shop.telefon}
               </a>
             </div>
             <div>
-              <p className="eyebrow mb-3">E-Mail</p>
-              <a href={`mailto:${shop.email}`} className="text-sm text-anthracite/85 hover:text-gold">
-                {shop.email}
+              <p className="eyebrow mb-3">Auf Google Maps</p>
+              <a
+                href={mapsPlaceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="text-sm text-anthracite/85 hover:text-gold"
+              >
+                Standort ansehen
               </a>
             </div>
           </div>
@@ -67,17 +76,13 @@ export function VisitBlock() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/5] bg-ivory-dark lg:aspect-auto lg:min-h-[560px]">
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-            <p className="eyebrow">Standort</p>
-            <p className="max-w-xs font-serif text-2xl leading-snug text-anthracite">
-              {shop.strasse}<br />{shop.plz} {shop.ort}
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.28em] text-anthracite/40">
-              Kartendarstellung folgt
-            </p>
-          </div>
-          <div className="absolute inset-0 border border-anthracite/10" />
+        <div className="lg:min-h-[560px]">
+          <PhotoPlaceholder
+            code="0C"
+            aspect="portrait"
+            label="Karte / Standortfoto"
+            className="h-full lg:aspect-auto"
+          />
         </div>
       </div>
     </section>

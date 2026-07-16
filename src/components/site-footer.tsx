@@ -1,17 +1,20 @@
 import { Link } from "@tanstack/react-router";
 import { shop } from "@/data/shop";
+import logoAsset from "@/assets/gold-star-logo.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-anthracite/10 bg-ivory">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 md:grid-cols-3 md:px-8">
         <div>
-          <div className="font-serif text-2xl">
-            Gold <span className="text-gold">&amp;</span> Star
-          </div>
+          <img
+            src={logoAsset.url}
+            alt="Juwelier Gold & Star"
+            className="h-12 w-auto"
+          />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-anthracite/70">
-            Ihr Juwelier in Berlin-Reinickendorf. Ausgewählter Schmuck, Uhren und Trauringe
-            – mit persönlicher Beratung vor Ort.
+            Ihr Juwelier in Berlin-Reinickendorf. Ausgewählter Schmuck, Uhren und
+            Trauringe – mit persönlicher Beratung vor Ort.
           </p>
         </div>
 
@@ -37,11 +40,6 @@ export function SiteFooter() {
             <p>
               <a href={shop.telefonHref} className="hover:text-gold">
                 {shop.telefon}
-              </a>
-            </p>
-            <p>
-              <a href={`mailto:${shop.email}`} className="hover:text-gold">
-                {shop.email}
               </a>
             </p>
           </div>
