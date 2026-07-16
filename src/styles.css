@@ -182,3 +182,88 @@
 @utility animate-fade-up {
   animation: gs-fade-up 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* Endloser Ticker */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Ornament-Stern dreht langsam */
+@keyframes ornament-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Cursor-Spotlight – Goldaura folgt dem Zeiger */
+.spotlight { --mx: 50%; --my: 50%; }
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    360px circle at var(--mx) var(--my),
+    color-mix(in oklab, var(--gold) 22%, transparent) 0%,
+    transparent 60%
+  );
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  z-index: 2;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* Kinetic-Typografie: Wort für Wort einblenden */
+@keyframes kinetic-in {
+  from { opacity: 0; transform: translateY(0.6em) rotate(3deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0); }
+}
+.kinetic-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.kinetic-word-inner {
+  display: inline-block;
+  opacity: 0;
+  animation: kinetic-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: inherit;
+}
+.kinetic-word { animation: none; animation-delay: inherit; }
+.kinetic-word > .kinetic-word-inner { animation-delay: inherit; }
+
+/* Magnetischer Button – Fokus-Hint */
+.magnetic-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* Feine gold-punktierte Trennlinie */
+.dotted-gold {
+  background-image: radial-gradient(circle, var(--gold) 1px, transparent 1.5px);
+  background-size: 10px 2px;
+  background-repeat: repeat-x;
+  height: 2px;
+}
+
+/* Foto-Karten leichter Vignetten-Rahmen im Hover */
+.photo-frame {
+  position: relative;
+}
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid color-mix(in oklab, var(--gold) 60%, transparent);
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 600ms ease, transform 600ms cubic-bezier(0.16,1,0.3,1);
+  pointer-events: none;
+  z-index: 3;
+}
+.photo-frame:hover::after { opacity: 1; transform: scale(1); }
