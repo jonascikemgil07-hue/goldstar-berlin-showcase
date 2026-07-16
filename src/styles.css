@@ -272,3 +272,108 @@
   z-index: 3;
 }
 .photo-frame:hover::after { opacity: 1; transform: scale(1); }
+
+/* ============ Goldener Schleier (Hintergrund) ============ */
+.gold-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--ivory);
+  transition: filter 900ms ease;
+}
+.gold-veil-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform, opacity;
+  mix-blend-mode: multiply;
+}
+.gold-veil-orb--1 {
+  width: 62vmax;
+  height: 62vmax;
+  left: -18vmax;
+  top: -22vmax;
+  background: radial-gradient(circle, color-mix(in oklab, var(--gold) 32%, transparent) 0%, transparent 62%);
+  animation: veil-drift-1 26s ease-in-out infinite alternate;
+}
+.gold-veil-orb--2 {
+  width: 70vmax;
+  height: 70vmax;
+  right: -24vmax;
+  top: 18vmax;
+  background: radial-gradient(circle, color-mix(in oklab, var(--gold-muted) 45%, transparent) 0%, transparent 60%);
+  animation: veil-drift-2 32s ease-in-out infinite alternate;
+  opacity: 0.5;
+}
+.gold-veil-orb--3 {
+  width: 55vmax;
+  height: 55vmax;
+  left: 20vmax;
+  bottom: -22vmax;
+  background: radial-gradient(circle, color-mix(in oklab, var(--gold) 22%, transparent) 0%, transparent 62%);
+  animation: veil-drift-3 40s ease-in-out infinite alternate;
+  opacity: 0.45;
+}
+.gold-veil-grain {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(color-mix(in oklab, var(--gold) 18%, transparent) 1px, transparent 1.2px);
+  background-size: 3px 3px;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+@keyframes veil-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(6vmax, 4vmax) scale(1.08); }
+}
+@keyframes veil-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-5vmax, 6vmax) scale(1.05); }
+}
+@keyframes veil-drift-3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-4vmax, -5vmax) scale(1.1); }
+}
+
+/* Puls-Reaktion bei Klick */
+.gold-veil.is-pulsing .gold-veil-orb {
+  animation-duration: 12s;
+}
+.gold-veil.is-pulsing {
+  animation: veil-pulse 1200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes veil-pulse {
+  0%   { filter: brightness(1) saturate(1); }
+  35%  { filter: brightness(1.05) saturate(1.25); }
+  100% { filter: brightness(1) saturate(1); }
+}
+
+/* Ripple aus dem Klickpunkt */
+.gold-veil-ripple {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--gold) 55%, transparent) 0%, transparent 65%);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  transform: scale(1);
+  animation: veil-ripple 1300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+@keyframes veil-ripple {
+  0%   { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(90); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-veil-orb { animation: none !important; }
+  .gold-veil-ripple { animation-duration: 300ms !important; }
+}
