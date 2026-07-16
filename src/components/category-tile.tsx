@@ -15,7 +15,7 @@ export function CategoryTile({ slug, label, eyebrow, code }: Props) {
       params={{ slug }}
       className="group hover-lift relative block overflow-hidden"
     >
-      <div className="transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]">
+      <div className="photo-frame transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]">
         <PhotoPlaceholder code={code} aspect="portrait" label={label} />
       </div>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-anthracite/85 via-anthracite/30 to-transparent p-6 text-ivory transition-opacity duration-500 md:p-8">
