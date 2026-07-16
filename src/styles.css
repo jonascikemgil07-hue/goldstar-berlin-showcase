@@ -156,6 +156,16 @@
   transform-origin: left center;
 }
 
+.mobile-menu-backdrop {
+  background: color-mix(in oklab, var(--anthracite) 42%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-panel {
+  background: var(--ivory);
+  color: var(--anthracite);
+}
+
 /* Soft lift on hover */
 @utility hover-lift {
   transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
