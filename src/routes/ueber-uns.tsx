@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/page-header";
 import { ContactCTA } from "@/components/contact-cta";
-import ueberUnsBild from "@/assets/ueber-uns-werkbank.jpg";
+import { PhotoPlaceholder } from "@/components/photo-placeholder";
 
 export const Route = createFileRoute("/ueber-uns")({
   head: () => ({
@@ -27,14 +27,7 @@ function UeberUnsPage() {
       />
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[5/6] overflow-hidden bg-ivory-dark">
-            <img
-              src={ueberUnsBild}
-              alt="Werkbank in unserem Atelier"
-              loading="lazy"
-              className="size-full object-cover"
-            />
-          </div>
+          <PhotoPlaceholder code="0D" aspect="portrait" label="Ladeninneres / Team" />
           <div className="space-y-6 text-base leading-relaxed text-anthracite/80">
             <p>
               Bei Juwelier Gold &amp; Star nehmen wir uns Zeit. Für Sie, für Ihre Wünsche und für
