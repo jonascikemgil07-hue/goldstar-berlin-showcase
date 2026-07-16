@@ -7,6 +7,7 @@ import { TrustStrip } from "@/components/trust-strip";
 import { VisitBlock } from "@/components/visit-block";
 import { ContactCTA } from "@/components/contact-cta";
 import { PhotoPlaceholder } from "@/components/photo-placeholder";
+import { Reveal } from "@/components/reveal";
 
 import { services } from "@/data/services";
 import { kategorien } from "@/data/categories";
@@ -34,7 +35,7 @@ function Index() {
       {/* Hero */}
       <section className="relative">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-14 md:px-8 md:pb-28 md:pt-20 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 animate-fade-up">
             <p className="eyebrow mb-6">Juwelier in Berlin-Reinickendorf</p>
             <h1 className="text-4xl leading-[1.08] text-anthracite sm:text-5xl lg:text-6xl xl:text-7xl">
               Schmuck, Uhren und <em className="text-gold">persönliche</em> Beratung in Berlin
@@ -47,20 +48,20 @@ function Index() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
                 to="/sortiment"
-                className="border border-anthracite bg-anthracite px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:bg-gold hover:border-gold"
+                className="border border-anthracite bg-anthracite px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-gold hover:border-gold hover:shadow-[0_16px_32px_-20px_rgba(182,141,64,0.7)]"
               >
                 Sortiment entdecken
               </Link>
               <Link
                 to="/kontakt"
-                className="border border-anthracite/20 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-anthracite transition-colors hover:border-gold hover:text-gold"
+                className="border border-anthracite/20 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-anthracite transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-gold hover:text-gold"
               >
                 Besuch planen
               </Link>
             </div>
           </div>
 
-          <div className="relative lg:col-span-6">
+          <Reveal className="relative lg:col-span-6" delay={150} y={32}>
             <PhotoPlaceholder code="0A" aspect="portrait" label="Ladenansicht" />
             <div className="absolute -bottom-4 -left-4 hidden max-w-[220px] border border-anthracite/10 bg-ivory p-6 md:block md:-bottom-8 md:-left-8">
               <p className="eyebrow mb-2">Seit vielen Jahren</p>
@@ -68,7 +69,7 @@ function Index() {
                 Vertrauen. Beratung. Handwerk.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -90,14 +91,15 @@ function Index() {
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {kategorien.map((k) => (
-            <CategoryTile
-              key={k.slug}
-              slug={k.slug}
-              label={k.name}
-              eyebrow={k.eyebrow}
-              code={k.tileCode}
-            />
+          {kategorien.map((k, i) => (
+            <Reveal key={k.slug} delay={i * 90}>
+              <CategoryTile
+                slug={k.slug}
+                label={k.name}
+                eyebrow={k.eyebrow}
+                code={k.tileCode}
+              />
+            </Reveal>
           ))}
         </div>
       </section>
@@ -112,8 +114,10 @@ function Index() {
               intro="Neben Beratung und Verkauf begleiten wir Ihre Schmuckstücke und Uhren auch über Jahre hinweg."
             />
             <div className="grid gap-10 sm:grid-cols-2">
-              {services.map((s) => (
-                <ServiceCard key={s.nummer} service={s} />
+              {services.map((s, i) => (
+                <Reveal key={s.nummer} delay={i * 90}>
+                  <ServiceCard service={s} />
+                </Reveal>
               ))}
             </div>
           </div>
