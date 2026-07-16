@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
 import { SectionHeading } from "@/components/section-heading";
 import { CategoryTile } from "@/components/category-tile";
@@ -8,6 +9,11 @@ import { VisitBlock } from "@/components/visit-block";
 import { ContactCTA } from "@/components/contact-cta";
 import { PhotoPlaceholder } from "@/components/photo-placeholder";
 import { Reveal } from "@/components/reveal";
+import { Ornament } from "@/components/ornament";
+import { Marquee } from "@/components/marquee";
+import { MagneticButton } from "@/components/magnetic-button";
+import { Spotlight } from "@/components/spotlight";
+import { KineticHeading } from "@/components/kinetic-heading";
 
 import { services } from "@/data/services";
 import { kategorien } from "@/data/categories";
@@ -29,54 +35,153 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function useParallax() {
+  const [y, setY] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setY(window.scrollY));
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+  return y;
+}
+
 function Index() {
+  const scrollY = useParallax();
+
   return (
     <>
       {/* Hero */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
+        {/* Große Serifen-Watermark im Hintergrund */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-8 right-[-4%] select-none font-serif text-[22vw] italic leading-none text-anthracite/[0.04] md:text-[16vw]"
+          style={{ transform: `translateY(${scrollY * 0.08}px)` }}
+        >
+          Gold&amp;Star
+        </span>
+
         <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-14 md:px-8 md:pb-28 md:pt-20 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div className="lg:col-span-6 animate-fade-up">
-            <p className="eyebrow mb-6">Juwelier in Berlin-Reinickendorf</p>
-            <h1 className="text-4xl leading-[1.08] text-anthracite sm:text-5xl lg:text-6xl xl:text-7xl">
-              Schmuck, Uhren und <em className="text-gold">persönliche</em> Beratung in Berlin
-            </h1>
-            <p className="mt-8 max-w-lg text-base leading-relaxed text-anthracite/75 md:text-lg">
-              In unserem Geschäft in der Residenzstraße 47–48 zeigen wir Ihnen in Ruhe
-              ausgewählten Schmuck, feine Uhren und Trauringe – mit der Zeit und der
-              Beratung, die Ihre Entscheidung verdient.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link
-                to="/sortiment"
-                className="border border-anthracite bg-anthracite px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-gold hover:border-gold hover:shadow-[0_16px_32px_-20px_rgba(182,141,64,0.7)]"
-              >
-                Sortiment entdecken
-              </Link>
-              <Link
-                to="/kontakt"
-                className="border border-anthracite/20 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-anthracite transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-gold hover:text-gold"
-              >
-                Besuch planen
-              </Link>
+          <div className="relative lg:col-span-6">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-gold" />
+              <p className="text-[10px] font-medium uppercase tracking-[0.28em] text-gold">
+                Juwelier · Berlin-Reinickendorf
+              </p>
             </div>
+
+            <KineticHeading
+              as="h1"
+              text="Schmuck, Uhren und persönliche Beratung in Berlin"
+              highlight="persönliche"
+              className="text-4xl leading-[1.08] text-anthracite sm:text-5xl lg:text-6xl xl:text-[68px]"
+            />
+
+            <Reveal delay={600} y={12}>
+              <p className="mt-8 max-w-lg text-base leading-relaxed text-anthracite/75 md:text-lg">
+                In unserem Geschäft in der Residenzstraße 47–48 zeigen wir Ihnen in Ruhe
+                ausgewählten Schmuck, feine Uhren und Trauringe – mit der Zeit und der
+                Beratung, die Ihre Entscheidung verdient.
+              </p>
+            </Reveal>
+
+            <Reveal delay={800} y={8}>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <MagneticButton to="/sortiment" variant="solid">
+                  Sortiment entdecken
+                </MagneticButton>
+                <MagneticButton to="/kontakt" variant="outline">
+                  Besuch planen
+                </MagneticButton>
+              </div>
+            </Reveal>
+
+            {/* Mini-Meta unter den CTAs */}
+            <Reveal delay={950}>
+              <div className="mt-12 grid grid-cols-3 gap-6 border-t border-anthracite/10 pt-6 text-[11px] uppercase tracking-[0.2em] text-anthracite/55">
+                <div>
+                  <p className="text-gold">Adresse</p>
+                  <p className="mt-2 normal-case tracking-normal text-anthracite/75">
+                    Residenzstr. 47–48
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gold">Heute</p>
+                  <p className="mt-2 normal-case tracking-normal text-anthracite/75">
+                    10:30 – 17:00
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gold">Telefon</p>
+                  <p className="mt-2 normal-case tracking-normal text-anthracite/75">
+                    0179 79 73 549
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
 
-          <Reveal className="relative lg:col-span-6" delay={150} y={32}>
-            <PhotoPlaceholder code="0A" aspect="portrait" label="Ladenansicht" />
-            <div className="absolute -bottom-4 -left-4 hidden max-w-[220px] border border-anthracite/10 bg-ivory p-6 md:block md:-bottom-8 md:-left-8">
-              <p className="eyebrow mb-2">Seit vielen Jahren</p>
-              <p className="font-serif text-lg italic leading-snug text-anthracite">
-                Vertrauen. Beratung. Handwerk.
-              </p>
+          <Reveal className="relative lg:col-span-6" delay={200} y={40}>
+            <div
+              className="relative"
+              style={{ transform: `translateY(${Math.min(scrollY * -0.06, 0)}px)` }}
+            >
+              <Spotlight className="photo-frame">
+                <PhotoPlaceholder code="0A" aspect="portrait" label="Ladenansicht" />
+              </Spotlight>
+
+              {/* Overlay-Karte */}
+              <div className="absolute -bottom-4 -left-4 hidden max-w-[240px] border border-anthracite/10 bg-ivory p-6 shadow-[0_24px_60px_-32px_rgba(28,28,28,0.35)] md:block md:-bottom-8 md:-left-8">
+                <p className="eyebrow mb-2">Seit vielen Jahren</p>
+                <p className="font-serif text-lg italic leading-snug text-anthracite">
+                  Vertrauen. Beratung. Handwerk.
+                </p>
+                <div className="dotted-gold mt-4 w-full" />
+              </div>
+
+              {/* Kleines vertikales Label */}
+              <div className="pointer-events-none absolute -right-3 top-6 hidden origin-top-right rotate-90 md:block">
+                <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-anthracite/40">
+                  Est. Berlin · No. 001
+                </span>
+              </div>
             </div>
           </Reveal>
         </div>
       </section>
 
+      {/* Editorial-Ticker */}
+      <Marquee
+        speed={50}
+        items={[
+          "Persönliche Beratung im Ladengeschäft",
+          "Trauringgravur direkt bei uns im Haus",
+          "Reparatur & Wartung von Uhren",
+          "Ohrlochstechen mit medizinischen Studex-Systemen",
+          "Schmuckänderungen · Ringgröße · Kettenkürzung",
+          "Ankauf von Altgold zu tagesaktuellen Preisen",
+        ]}
+      />
+
       <TrustStrip />
 
       {/* Categories */}
-      <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+      <section className="relative mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-5 top-16 select-none font-serif text-[120px] italic leading-none text-anthracite/[0.05] md:right-8 md:text-[200px]"
+        >
+          01
+        </span>
+
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="Kategorien"
@@ -85,7 +190,7 @@ function Index() {
           />
           <Link
             to="/sortiment"
-            className="border-b border-gold pb-1 text-[11px] uppercase tracking-[0.22em] text-anthracite hover:text-gold"
+            className="story-link border-b border-gold pb-1 text-[11px] uppercase tracking-[0.22em] text-anthracite hover:text-gold"
           >
             Zum gesamten Sortiment
           </Link>
@@ -104,8 +209,16 @@ function Index() {
         </div>
       </section>
 
+      <Ornament className="mx-auto max-w-7xl px-5 pb-4 md:px-8" label="Handwerk seit vielen Jahren" />
+
       {/* Services */}
-      <section className="bg-ivory-dark/40 py-24 md:py-32">
+      <section className="relative bg-ivory-dark/40 py-24 md:py-32">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-5 top-16 select-none font-serif text-[120px] italic leading-none text-anthracite/[0.05] md:left-8 md:text-[200px]"
+        >
+          02
+        </span>
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_2fr] lg:gap-20">
             <SectionHeading
@@ -124,7 +237,7 @@ function Index() {
           <div className="mt-14">
             <Link
               to="/services"
-              className="border-b border-gold pb-1 text-[11px] uppercase tracking-[0.22em] text-anthracite hover:text-gold"
+              className="story-link border-b border-gold pb-1 text-[11px] uppercase tracking-[0.22em] text-anthracite hover:text-gold"
             >
               Alle Services ansehen
             </Link>
@@ -133,14 +246,25 @@ function Index() {
       </section>
 
       {/* About */}
-      <section>
+      <section className="relative">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-5 top-20 select-none font-serif text-[120px] italic leading-none text-anthracite/[0.05] md:right-8 md:text-[200px]"
+        >
+          03
+        </span>
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-2 lg:items-center lg:gap-20">
-          <PhotoPlaceholder code="0B" aspect="landscape" label="Werkbank / Beratung" />
+          <Reveal>
+            <Spotlight className="photo-frame">
+              <PhotoPlaceholder code="0B" aspect="landscape" label="Werkbank / Beratung" />
+            </Spotlight>
+          </Reveal>
           <div>
             <p className="eyebrow mb-5">Über den Juwelier</p>
-            <h2 className="text-3xl leading-tight text-anthracite md:text-4xl">
-              Ein Fachgeschäft, das zuhört, bevor es zeigt.
+            <h2 className="text-3xl leading-tight text-anthracite md:text-4xl lg:text-5xl">
+              Ein Fachgeschäft, das zuhört, <em className="text-gold">bevor</em> es zeigt.
             </h2>
+            <div className="dotted-gold mt-8 w-24" />
             <div className="mt-6 space-y-4 text-base leading-relaxed text-anthracite/75">
               <p>
                 Bei Gold &amp; Star nehmen wir uns Zeit, Ihre Wünsche zu verstehen.
@@ -152,13 +276,14 @@ function Index() {
                 wenn Sie zu uns finden.
               </p>
             </div>
+            <blockquote className="mt-10 border-l-2 border-gold pl-5 font-serif text-xl italic leading-snug text-anthracite/85 md:text-2xl">
+              „Ein gutes Schmuckstück erzählt eine Geschichte – wir helfen Ihnen,
+              die richtige zu finden."
+            </blockquote>
             <div className="mt-10">
-              <Link
-                to="/ueber-uns"
-                className="border border-anthracite/20 px-6 py-3 text-[11px] uppercase tracking-[0.22em] text-anthracite transition-colors hover:border-gold hover:text-gold"
-              >
+              <MagneticButton to="/ueber-uns" variant="outline">
                 Mehr über uns
-              </Link>
+              </MagneticButton>
             </div>
           </div>
         </div>
