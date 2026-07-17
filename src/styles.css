@@ -1,4 +1,5 @@
 @import "tailwindcss" source(none);
+
 @source "../src";
 @import "tw-animate-css";
 
@@ -157,15 +158,16 @@
 }
 
 .mobile-menu-backdrop {
-  background: color-mix(in oklab, var(--anthracite) 42%, transparent);
-  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--anthracite) 28%, transparent);
+  backdrop-filter: blur(18px);
 }
 
 .mobile-menu-panel {
-  background: color-mix(in oklab, var(--ivory) 50%, transparent);
-  backdrop-filter: blur(32px) saturate(170%);
+  background: color-mix(in oklab, var(--ivory) 38%, transparent);
+  backdrop-filter: blur(40px) saturate(180%);
   color: var(--anthracite);
 }
+
 
 /* ============ Liquid Glass ============
    Weiches, milchig-schimmerndes Glas mit feiner Innenkante
