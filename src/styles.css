@@ -158,15 +158,21 @@
 }
 
 .mobile-menu-backdrop {
-  background: color-mix(in oklab, var(--anthracite) 28%, transparent);
-  backdrop-filter: blur(18px);
+  background: color-mix(in oklab, var(--anthracite) 16%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
 }
 
 .mobile-menu-panel {
-  background: color-mix(in oklab, var(--ivory) 38%, transparent);
-  backdrop-filter: blur(40px) saturate(180%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--ivory) 24%, transparent) 0%,
+      color-mix(in oklab, var(--ivory) 14%, transparent) 100%
+    );
+  backdrop-filter: blur(26px) saturate(170%) brightness(1.02);
   color: var(--anthracite);
 }
+
 
 
 /* ============ Liquid Glass ============
