@@ -9,8 +9,8 @@ const items = [
 
 export function TrustStrip() {
   return (
-    <section className="relative border-y border-anthracite/10 bg-ivory-dark/50">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-10 px-5 py-14 md:grid-cols-4 md:gap-x-10 md:px-8 md:py-16">
+    <section className="relative px-5 py-10 md:px-8 md:py-14">
+      <div className="liquid-glass mx-auto grid max-w-7xl grid-cols-2 gap-y-10 px-5 py-14 md:grid-cols-4 md:gap-x-10 md:px-8 md:py-16">
         {items.map((i, idx) => (
           <div
             key={idx}
