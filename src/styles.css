@@ -170,45 +170,90 @@
 
 
 /* ============ Liquid Glass ============
-   Weiches, milchig-schimmerndes Glas mit feiner Innenkante
-   und dezenter Spekular-Sheen. Wiederverwendbar über die ganze Site. */
+   Ein feiner, refraktiver Glaseffekt: hohe Transparenz, weiche Sättigung,
+   subtile obere Lichtkante, warmer Bodenschimmer und ein diagonaler
+   Spekular-Highlight-Streifen. Bewusst reduziert – kein Milchglas. */
 @utility liquid-glass {
   position: relative;
-  background: color-mix(in oklab, var(--ivory) 55%, transparent);
-  backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid color-mix(in oklab, var(--ivory) 70%, transparent);
+  isolation: isolate;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, white 22%, transparent) 0%,
+      color-mix(in oklab, var(--ivory) 14%, transparent) 55%,
+      color-mix(in oklab, var(--ivory) 22%, transparent) 100%
+    );
+  backdrop-filter: blur(20px) saturate(180%) brightness(1.03);
+  -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.03);
+  border: 1px solid color-mix(in oklab, white 42%, transparent);
+  border-radius: inherit;
   box-shadow:
-    0 1px 0 color-mix(in oklab, white 55%, transparent) inset,
-    0 -1px 0 color-mix(in oklab, var(--anthracite) 6%, transparent) inset,
-    0 20px 40px -28px rgba(28, 28, 28, 0.35);
+    /* obere Lichtkante */
+    0 1px 0 color-mix(in oklab, white 75%, transparent) inset,
+    /* seitliche Refraktions-Andeutung */
+    1px 0 0 color-mix(in oklab, white 18%, transparent) inset,
+    -1px 0 0 color-mix(in oklab, white 12%, transparent) inset,
+    /* weicher Bodenschatten innen */
+    0 -1px 0 color-mix(in oklab, var(--anthracite) 8%, transparent) inset,
+    /* Umgebungs-Drop-Shadow */
+    0 1px 2px rgba(28, 28, 28, 0.04),
+    0 24px 60px -34px rgba(28, 28, 28, 0.28);
+  overflow: hidden;
 }
+/* Diagonaler Spekular-Streifen (fein, nicht glossy) */
 .liquid-glass::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, white 32%, transparent) 0%,
-    transparent 38%,
-    transparent 62%,
-    color-mix(in oklab, var(--gold) 10%, transparent) 100%
-  );
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, white 55%, transparent) 0%,
+      color-mix(in oklab, white 8%, transparent) 18%,
+      transparent 38%,
+      transparent 72%,
+      color-mix(in oklab, var(--gold) 14%, transparent) 100%
+    );
   mix-blend-mode: screen;
-  opacity: 0.7;
+  opacity: 0.55;
+  z-index: 0;
+}
+/* Sehr feine körnige Struktur – bricht das reine Blur auf */
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+    color-mix(in oklab, white 40%, transparent) 0.5px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
   z-index: 0;
 }
 .liquid-glass > * { position: relative; z-index: 1; }
 
 @utility liquid-glass-dark {
   position: relative;
-  background: color-mix(in oklab, var(--anthracite) 72%, transparent);
-  backdrop-filter: blur(28px) saturate(150%);
-  border: 1px solid color-mix(in oklab, var(--ivory) 15%, transparent);
+  isolation: isolate;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--anthracite) 58%, transparent) 0%,
+      color-mix(in oklab, var(--anthracite) 72%, transparent) 100%
+    );
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid color-mix(in oklab, white 14%, transparent);
+  border-radius: inherit;
   box-shadow:
-    0 1px 0 color-mix(in oklab, white 12%, transparent) inset,
+    0 1px 0 color-mix(in oklab, white 18%, transparent) inset,
     0 -1px 0 rgba(0,0,0,0.35) inset,
-    0 24px 60px -30px rgba(0, 0, 0, 0.55);
+    0 28px 70px -34px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 .liquid-glass-dark::before {
   content: "";
@@ -217,16 +262,17 @@
   pointer-events: none;
   background: linear-gradient(
     135deg,
-    color-mix(in oklab, white 14%, transparent) 0%,
+    color-mix(in oklab, white 22%, transparent) 0%,
     transparent 40%,
-    transparent 60%,
-    color-mix(in oklab, var(--gold) 22%, transparent) 100%
+    transparent 65%,
+    color-mix(in oklab, var(--gold) 26%, transparent) 100%
   );
   mix-blend-mode: screen;
-  opacity: 0.6;
+  opacity: 0.5;
   z-index: 0;
 }
 .liquid-glass-dark > * { position: relative; z-index: 1; }
+
 
 
 /* Soft lift on hover */
