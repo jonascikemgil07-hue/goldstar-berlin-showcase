@@ -136,7 +136,12 @@ function Index() {
               style={{ transform: `translateY(${Math.min(scrollY * -0.06, 0)}px)` }}
             >
               <Spotlight className="photo-frame">
-                <PhotoPlaceholder code="0A" aspect="portrait" label="Ladenansicht" />
+                <img
+                  src={storefrontAsset.url}
+                  alt="Ladenansicht von Juwelier Gold & Star in Berlin-Reinickendorf"
+                  className="h-full w-full object-cover object-center"
+                  loading="lazy"
+                />
               </Spotlight>
 
               {/* Overlay-Karte */}
