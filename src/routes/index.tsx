@@ -14,6 +14,7 @@ import { Marquee } from "@/components/marquee";
 import { MagneticButton } from "@/components/magnetic-button";
 import { Spotlight } from "@/components/spotlight";
 import { KineticHeading } from "@/components/kinetic-heading";
+import storefrontAsset from "@/assets/storefront.png.asset.json";
 
 import { services } from "@/data/services";
 import { kategorien } from "@/data/categories";
