@@ -158,20 +158,21 @@
 }
 
 .mobile-menu-backdrop {
-  background: color-mix(in oklab, var(--anthracite) 16%, transparent);
-  backdrop-filter: blur(14px) saturate(140%);
+  background: color-mix(in oklab, var(--anthracite) 12%, transparent);
+  backdrop-filter: blur(10px) saturate(130%);
 }
 
 .mobile-menu-panel {
   background:
     linear-gradient(
       180deg,
-      color-mix(in oklab, var(--ivory) 24%, transparent) 0%,
-      color-mix(in oklab, var(--ivory) 14%, transparent) 100%
+      color-mix(in oklab, var(--ivory) 18%, transparent) 0%,
+      color-mix(in oklab, var(--ivory) 10%, transparent) 100%
     );
-  backdrop-filter: blur(26px) saturate(170%) brightness(1.02);
+  backdrop-filter: blur(18px) saturate(155%) brightness(1.02);
   color: var(--anthracite);
 }
+
 
 
 
