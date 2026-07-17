@@ -4,8 +4,8 @@ import logoAsset from "@/assets/gold-star-logo.asset.json";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-24 border-t border-anthracite/10 bg-ivory">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 md:grid-cols-3 md:px-8">
+    <footer className="mt-24 px-5 pb-10 md:px-8">
+      <div className="liquid-glass mx-auto grid max-w-7xl gap-14 px-6 py-20 md:grid-cols-3 md:px-10">
         <div>
           <img
             src={logoAsset.url}
