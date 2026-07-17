@@ -1,6 +1,6 @@
 import { shop, mapsRouteUrl, mapsPlaceUrl } from "@/data/shop";
 import { Link } from "@tanstack/react-router";
-import { PhotoPlaceholder } from "@/components/photo-placeholder";
+import mapLocationAsset from "@/assets/map-location.png.asset.json";
 
 export function VisitBlock() {
   return (
