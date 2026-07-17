@@ -38,8 +38,9 @@ export function SiteFooter() {
           <p className="eyebrow mb-5">Kontakt</p>
           <div className="space-y-2 text-sm text-anthracite/80">
             <p>
-              <a href={shop.telefonHref} className="hover:text-gold">
+              <a href={shop.telefonHref} className="hover:text-gold whitespace-pre-line">
                 {shop.telefon}
+                {"\n"}info@goldstarberlin.de{"\n"}
               </a>
             </p>
           </div>

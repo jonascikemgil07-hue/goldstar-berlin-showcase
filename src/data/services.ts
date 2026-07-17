@@ -40,7 +40,7 @@ export const services: Service[] = [
     kurz: "Wartung und Batteriewechsel",
     beschreibung:
       "Batteriewechsel, Bandanpassung und Wartungsarbeiten für Quarz- und Automatikuhren – in Ruhe und mit Sorgfalt.",
-    preisHinweis: "Preise abhängig von Modell und Aufwand – gerne im Geschäft.",
+    preisHinweis: ".",
     leistungen: [
       { bezeichnung: "Batteriewechsel (Standard)", preis: "auf Anfrage" },
       { bezeichnung: "Bandkürzung Metallband", preis: "auf Anfrage" },

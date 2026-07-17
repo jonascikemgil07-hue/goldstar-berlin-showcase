@@ -23,7 +23,7 @@ function UeberUnsPage() {
       <PageHeader
         eyebrow="Über uns"
         title="Ein Ort mit Gesicht"
-        intro="Wir sind ein Familienbetrieb aus Berlin-Reinickendorf – und wir freuen uns, wenn Sie zu uns finden."
+        intro="\n"
       />
       <section className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
