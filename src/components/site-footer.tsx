@@ -51,6 +51,9 @@ export function SiteFooter() {
             <Link to="/datenschutz" className="text-anthracite/60 hover:text-gold">
               Datenschutz
             </Link>
+            <Link to="/agb" className="text-anthracite/60 hover:text-gold">
+              AGB
+            </Link>
           </div>
         </div>
       </div>
