@@ -70,7 +70,7 @@ function Index() {
           Gold&amp;Star
         </span>
 
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-14 md:px-8 md:pb-28 md:pt-20 lg:grid-cols-12 lg:items-center lg:gap-16">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-20 pt-28 md:px-8 md:pb-28 md:pt-32 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="relative lg:col-span-6">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-gold" />
