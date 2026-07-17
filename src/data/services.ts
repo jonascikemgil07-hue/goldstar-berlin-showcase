@@ -23,7 +23,7 @@ export const services: Service[] = [
     beschreibung:
       "Wir prüfen, reinigen und arbeiten Ihre Schmuckstücke sorgfältig auf – von der Kettenreparatur bis zur Neufassung eines Steins.",
     preisHinweis:
-      "Reparaturen und Wartung von Schmuck sind bei uns grundsätzlich kostenlos.",
+      "Reparaturen und Wartung von Schmuck der bei uns erworben wurde sind bei uns grundsätzlich kostenlos.",
     leistungen: [
       { bezeichnung: "Ultraschall-Reinigung", preis: "kostenlos" },
       { bezeichnung: "Prüfung & Sichtkontrolle", preis: "kostenlos" },
@@ -40,7 +40,7 @@ export const services: Service[] = [
     kurz: "Wartung und Batteriewechsel",
     beschreibung:
       "Batteriewechsel, Bandanpassung und Wartungsarbeiten für Quarz- und Automatikuhren – in Ruhe und mit Sorgfalt.",
-    preisHinweis: "Preise abhängig von Modell und Aufwand – gerne im Geschäft.",
+    preisHinweis: ".",
     leistungen: [
       { bezeichnung: "Batteriewechsel (Standard)", preis: "auf Anfrage" },
       { bezeichnung: "Bandkürzung Metallband", preis: "auf Anfrage" },

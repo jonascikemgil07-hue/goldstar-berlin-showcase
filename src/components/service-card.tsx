@@ -73,7 +73,7 @@ export function ServiceCard({ service }: { service: Service }) {
               ))}
             </ul>
             <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-anthracite/50">
-              Alle Preise unverbindlich · Endpreis nach Sichtung im Geschäft
+              {"\n"}
             </p>
           </div>
         </div>

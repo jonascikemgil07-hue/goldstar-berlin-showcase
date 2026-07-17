@@ -187,7 +187,7 @@ function Index() {
           <SectionHeading
             eyebrow="Kategorien"
             title="Was Sie bei uns finden"
-            intro="Von zeitlosem Schmuck über klassische Uhren bis hin zu Trauringen – jede Kategorie mit einer eigenen Fotogalerie."
+            intro="Von zeitlosem Schmuck über klassische Uhren bis hin zu Trauringen\u00a0"
           />
           <Link
             to="/sortiment"
