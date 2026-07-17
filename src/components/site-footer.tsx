@@ -53,8 +53,8 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="border-t border-anthracite/5">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-2 px-5 py-6 text-[10px] uppercase tracking-[0.22em] text-anthracite/50 sm:flex-row sm:items-center md:px-8">
+      <div className="mx-auto mt-4 max-w-7xl">
+        <div className="liquid-glass flex flex-col items-start justify-between gap-2 px-6 py-6 text-[10px] uppercase tracking-[0.22em] text-anthracite/50 sm:flex-row sm:items-center md:px-10">
           <p>© {new Date().getFullYear()} Juwelier Gold & Star, Berlin</p>
           <p>Kein Onlineshop – Verkauf ausschließlich im Ladengeschäft.</p>
         </div>
