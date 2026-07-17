@@ -109,10 +109,8 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 border-b border-ivory-dark/10 bg-ivory/[0.08] backdrop-blur-[42px] saturate-[150%] transition-[box-shadow,border-color,background-color] duration-500 ${
-          scrolled
-            ? "border-ivory-dark/20 bg-ivory/[0.12] shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
-            : ""
+        className={`sticky top-0 z-50 header-glass ${
+          scrolled ? "header-glass-scrolled" : ""
         }`}
       >
         <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-3 md:px-8 md:py-4">
