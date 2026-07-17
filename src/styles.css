@@ -168,20 +168,6 @@
   color: var(--anthracite);
 }
 
-.liquid-glass-header {
-  background: linear-gradient(
-    to bottom,
-    color-mix(in oklab, var(--ivory) 22%, transparent),
-    color-mix(in oklab, var(--ivory) 14%, transparent)
-  );
-}
-.liquid-glass-header.scrolled {
-  background: linear-gradient(
-    to bottom,
-    color-mix(in oklab, var(--ivory) 34%, transparent),
-    color-mix(in oklab, var(--ivory) 22%, transparent)
-  );
-}
 
 /* ============ Liquid Glass ============
    Weiches, milchig-schimmerndes Glas mit feiner Innenkante

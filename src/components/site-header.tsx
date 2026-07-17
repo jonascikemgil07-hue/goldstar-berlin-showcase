@@ -109,9 +109,9 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`liquid-glass-header sticky top-0 z-50 border-b border-ivory-dark/20 bg-ivory/[0.18] backdrop-blur-[28px] transition-[box-shadow,border-color,background-color] duration-500 ${
+        className={`sticky top-0 z-50 border-b border-ivory-dark/15 bg-ivory/[0.10] backdrop-blur-[36px] saturate-[140%] transition-[box-shadow,border-color,background-color] duration-500 ${
           scrolled
-            ? "border-ivory-dark/35 bg-ivory/[0.26] shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
+            ? "border-ivory-dark/25 bg-ivory/[0.16] shadow-[0_10px_30px_-24px_rgba(28,28,28,0.35)]"
             : ""
         }`}
       >
