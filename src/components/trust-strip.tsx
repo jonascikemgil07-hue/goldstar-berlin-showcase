@@ -1,7 +1,7 @@
 import { CountUp } from "@/components/count-up";
 
 const items = [
-  { value: 30, suffix: "+", label: "Jahre Erfahrung im Fachhandel" },
+  { value: 35, suffix: "+", label: "Jahre Erfahrung im Fachhandel" },
   { value: 6, suffix: "", label: "Kategorien vor Ort im Sortiment" },
   { value: 100, suffix: "%", label: "Beratung ohne Onlineshop-Kompromiss" },
   { value: 1, suffix: "", label: "Fachgeschäft in Berlin-Reinickendorf" },

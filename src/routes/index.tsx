@@ -163,6 +163,7 @@ function Index() {
         speed={50}
         items={[
           "Persönliche Beratung im Ladengeschäft",
+          "Reparatur & Wartung von Schmuck – bei uns kostenlos",
           "Trauringgravur direkt bei uns im Haus",
           "Reparatur & Wartung von Uhren",
           "Ohrlochstechen mit medizinischen Studex-Systemen",
