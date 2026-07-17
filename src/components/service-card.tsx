@@ -6,9 +6,9 @@ export function ServiceCard({ service }: { service: Service }) {
   const panelId = useId();
 
   return (
-    <article className="group relative border-t border-anthracite/15 pt-6 transition-colors duration-500 hover:border-gold">
+    <article className="group liquid-glass relative overflow-hidden p-6 transition-all duration-500 hover:-translate-y-0.5 md:p-8">
       <span
-        className="absolute left-0 top-0 h-px w-0 bg-gold transition-[width] duration-700 ease-out group-hover:w-full"
+        className="absolute left-0 top-0 z-[2] h-px w-0 bg-gold transition-[width] duration-700 ease-out group-hover:w-full"
         aria-hidden="true"
       />
       <p className="font-serif text-sm italic text-gold">{service.nummer}</p>
