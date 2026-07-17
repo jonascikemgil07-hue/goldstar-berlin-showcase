@@ -47,6 +47,7 @@ export function ContactCTA() {
           </Link>
         </div>
       </div>
+      </div>
     </section>
   );
 }
