@@ -23,7 +23,7 @@ export const services: Service[] = [
     beschreibung:
       "Wir prüfen, reinigen und arbeiten Ihre Schmuckstücke sorgfältig auf – von der Kettenreparatur bis zur Neufassung eines Steins.",
     preisHinweis:
-      "Reparaturen und Wartung von Schmuck sind bei uns grundsätzlich kostenlos.",
+      "Reparaturen und Wartung von Schmuck der bei uns erworben wurde sind bei uns grundsätzlich kostenlos.",
     leistungen: [
       { bezeichnung: "Ultraschall-Reinigung", preis: "kostenlos" },
       { bezeichnung: "Prüfung & Sichtkontrolle", preis: "kostenlos" },
