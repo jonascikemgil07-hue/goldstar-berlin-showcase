@@ -76,14 +76,26 @@ export function VisitBlock() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden lg:min-h-[560px]">
+        <a
+          href={mapsRouteUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="group relative block overflow-hidden lg:min-h-[560px]"
+          aria-label="Route zum Juwelier Gold & Star in Google Maps starten"
+        >
           <img
             src={mapLocationAsset.url}
             alt="Standort Juwelier Gold & Star auf Google Maps"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
           />
-        </div>
+          <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 border border-anthracite/10 bg-ivory/80 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-anthracite backdrop-blur-md transition-colors group-hover:border-gold group-hover:text-gold">
+            Route planen
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </span>
+        </a>
       </div>
     </section>
   );
