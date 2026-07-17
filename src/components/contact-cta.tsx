@@ -3,15 +3,16 @@ import { mapsRouteUrl } from "@/data/shop";
 
 export function ContactCTA() {
   return (
-    <section className="relative overflow-hidden bg-anthracite text-ivory">
-      {/* Watermark im Hintergrund */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-16 -right-8 select-none font-serif text-[22vw] italic leading-none text-ivory/[0.04] md:text-[16vw]"
-      >
-        &amp;
-      </span>
-      <div className="relative mx-auto max-w-4xl px-5 py-24 text-center md:px-8 md:py-32">
+    <section className="relative px-5 py-16 md:px-8 md:py-24">
+      <div className="liquid-glass-dark relative mx-auto max-w-6xl overflow-hidden text-ivory">
+        {/* Watermark im Hintergrund */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-16 -right-8 select-none font-serif text-[22vw] italic leading-none text-ivory/[0.06] md:text-[16vw]"
+        >
+          &amp;
+        </span>
+        <div className="relative mx-auto max-w-4xl px-5 py-20 text-center md:px-8 md:py-28">
         <div className="mx-auto mb-8 flex items-center justify-center gap-4 text-gold">
           <span className="h-px w-14 bg-gold/60" />
           <svg viewBox="0 0 24 24" className="size-3" fill="currentColor">
