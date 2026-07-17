@@ -232,7 +232,7 @@
     transparent 1px
   );
   background-size: 3px 3px;
-  opacity: 0.018;
+  opacity: 0.012;
   mix-blend-mode: overlay;
   z-index: 0;
 }
