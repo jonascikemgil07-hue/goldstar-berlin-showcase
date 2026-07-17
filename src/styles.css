@@ -167,6 +167,66 @@
   color: var(--anthracite);
 }
 
+/* ============ Liquid Glass ============
+   Weiches, milchig-schimmerndes Glas mit feiner Innenkante
+   und dezenter Spekular-Sheen. Wiederverwendbar über die ganze Site. */
+@utility liquid-glass {
+  position: relative;
+  background: color-mix(in oklab, var(--ivory) 55%, transparent);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid color-mix(in oklab, var(--ivory) 70%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, white 55%, transparent) inset,
+    0 -1px 0 color-mix(in oklab, var(--anthracite) 6%, transparent) inset,
+    0 20px 40px -28px rgba(28, 28, 28, 0.35);
+}
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, white 32%, transparent) 0%,
+    transparent 38%,
+    transparent 62%,
+    color-mix(in oklab, var(--gold) 10%, transparent) 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.7;
+  z-index: 0;
+}
+.liquid-glass > * { position: relative; z-index: 1; }
+
+@utility liquid-glass-dark {
+  position: relative;
+  background: color-mix(in oklab, var(--anthracite) 72%, transparent);
+  backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid color-mix(in oklab, var(--ivory) 15%, transparent);
+  box-shadow:
+    0 1px 0 color-mix(in oklab, white 12%, transparent) inset,
+    0 -1px 0 rgba(0,0,0,0.35) inset,
+    0 24px 60px -30px rgba(0, 0, 0, 0.55);
+}
+.liquid-glass-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, white 14%, transparent) 0%,
+    transparent 40%,
+    transparent 60%,
+    color-mix(in oklab, var(--gold) 22%, transparent) 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  z-index: 0;
+}
+.liquid-glass-dark > * { position: relative; z-index: 1; }
+
+
 /* Soft lift on hover */
 @utility hover-lift {
   transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
